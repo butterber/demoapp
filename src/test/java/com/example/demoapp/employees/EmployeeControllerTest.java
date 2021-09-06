@@ -24,5 +24,16 @@ public class EmployeeControllerTest {
 		assertEquals(1, results[0].getId());
 		assertEquals("Ravinun", results[0].getName());
 	}
+	
+	@Test
+	public void getEmployeeById() {
+		// Arrange
+		int id = 1;
+        // Act
+        EmployeeResponse result = restTemplate.getForObject("/employees/" + id, EmployeeResponse.class);
+        // Assert
+        assertEquals(id, result.getId());
+        assertEquals("Ravinun", result.getName());
+	}
 
 }
