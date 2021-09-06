@@ -20,7 +20,6 @@ public class DemoappApplication {
 		}
 		
 		Arrays.stream(names).forEach(System.out::println);
-		
 		System.out.println(context.getBeanDefinitionCount());
 	}
 
