@@ -47,4 +47,17 @@ public class EmployeeServiceUnitTest {
 		}
 	}
 
+	@Test
+	public void employee_not_found_case_with_junit5() {
+		// Arrange
+		when(employeeRepository.findById(1)).thenReturn(Optional.empty());
+		// Act
+		EmployeeService employeeService = new EmployeeService(employeeRepository);
+		Exception exception = assertThrows(EmployeeNotFoundException.class, () -> {
+			employeeService.getById(1);
+		});
+		// Assert
+		assertEquals("Employee not found id=1", exception.getMessage());
+	}
+
 }
