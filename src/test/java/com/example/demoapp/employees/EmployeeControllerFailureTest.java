@@ -22,6 +22,7 @@ public class EmployeeControllerFailureTest {
 		// Act
 		ErrorResponse result = restTemplate.getForObject("/employees/" + id, ErrorResponse.class);
 		// Assert
+//		assertEquals(404, result.getStatusCodeValue());
 		assertEquals(404, result.getCode());
 		assertEquals("Employee not found id = 1", result.getDetail());
 		
