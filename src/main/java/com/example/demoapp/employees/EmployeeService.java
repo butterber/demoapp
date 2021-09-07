@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeService {
 	
-	@Autowired
 	private EmployeeRepository employeeRepository;
+
+	@Autowired
+	public EmployeeService(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
 
 	public EmployeeResponse getById(int id) {
 		
